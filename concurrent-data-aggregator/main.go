@@ -19,7 +19,7 @@ func main() {
 			defer wg.Done()
 			RetryWithBackoff(ctx, func() error {
 				return Fetch(ctx, source, out)
-			}, func(count int) {
+			}, func(count int32) {
 				fmt.Printf("Source %s FAILED (retry %d/%d)\n", source.Name, count+1, MAX_RETRIES)
 			}, func(err error) {
 				out <- Result{Source: source.Name, Err: err, Duration: time.Since(start), Data: ""}

@@ -3,7 +3,7 @@ package main
 import "time"
 
 const (
-	MAX_RETRIES    = 3
+	MAX_RETRIES    = 5
 	MAX_BACKOFF    = 30 * time.Second
 	GLOBAL_TIMEOUT = 5 * time.Second
 )
